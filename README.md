@@ -28,7 +28,7 @@ Open your application's `composer.json` file and add the following line to the `
 
 After installing the package, open your Laravel config file located at `config/app.php` and add the following service provider to the `$providers` array:
 ```php
-Buzzylab\Laradown\Providers\MarkdownServiceProvider::class,
+Buzzylab\Laradown\MarkdownServiceProvider::class,
 ```
 
 > **Note:** Checkout Laravel's [Service Providers](https://laravel.com/docs/5.2/providers) and [Service Container](https://laravel.com/docs/5.2/container) documentation for further details.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Buzzylab\Laradown\Providers;
+namespace Buzzylab\Laradown;
 
 use Parsedown;
 use Illuminate\Support\Facades\Blade;
