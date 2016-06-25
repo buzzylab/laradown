@@ -1,0 +1,26 @@
+{
+    "name": "buzzylab/laradown",
+    "description": "A New Markdown parser for Laravel built on parsedown",
+    "keywords": [
+        "laravel",
+        "package",
+        "Markdown",
+        "editor"
+    ],
+    "require": {
+        "illuminate/support": "5.2.*",
+        "erusev/parsedown": "^1.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "buzzylab",
+            "email": "maherbusnes@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "Buzzylab\\Laraciconia\\": "src"
+        }
+    }
+}
