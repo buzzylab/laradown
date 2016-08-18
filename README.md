@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/buzzylab/laradown/license)](https://packagist.org/packages/buzzylab/laradown)
 [![StyleCI](https://styleci.io/repos/61923982/shield)](https://styleci.io/repos/61923982)
 
-A New `Markdown` parser for Laravel built on [parsedown](https://github.com/erusev/parsedown).
+A New `Markdown` parser for Laravel built on [Parsedown](https://github.com/erusev/parsedown) an [Parsedown Extra](https://github.com/erusev/parsedown-extra).
 
 ### Installation
 
@@ -15,7 +15,7 @@ The best and easiest way to install this package is through [Composer](https://g
 
 ### Compatibility
 
-This package fully compatible with **[Laravel](https://laravel.com)** `5.2.*`.
+This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2.*|5.3.*`.
 
 ### Require Package
 
@@ -43,13 +43,9 @@ And add the following to `$aliases`
 ### Usage
 
 ```php
-@extends('layouts.master')
+<?php
 
-@section('content')
-<div>
-  {!! Markdown::render($content) !!}
-</div>
-@stop
+echo Markdown::render(); // OR echo Markdown::convert();
 ```
 
 And you can use `@markdown` directive
@@ -59,7 +55,25 @@ And you can use `@markdown` directive
 
 @section('content')
 <div>
+    
+  {{-- $content is markdown data --}}
   @markdown($content)
+</div>
+@stop
+```
+
+Also, You can use markdown blade directive block
+
+```php
+@extends('layouts.master')
+
+@section('content')
+<div>
+  @markdown
+  
+  # Laradown Packag
+  
+  @endmarkdown
 </div>
 @stop
 ```
