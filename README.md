@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/buzzylab/laradown/license)](https://packagist.org/packages/buzzylab/laradown)
 [![StyleCI](https://styleci.io/repos/61923982/shield)](https://styleci.io/repos/61923982)
 
-A New `Markdown` parser for Laravel built on [Parsedown](https://github.com/erusev/parsedown) an [Parsedown Extra](https://github.com/erusev/parsedown-extra).
+A New `Markdown` parser for Laravel built on [Parsedown](https://github.com/erusev/parsedown) and [Parsedown Extra](https://github.com/erusev/parsedown-extra).
 
 ### Installation
 
