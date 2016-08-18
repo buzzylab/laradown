@@ -8,7 +8,7 @@
         "editor"
     ],
     "require": {
-        "illuminate/support": "5.2.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*",
         "erusev/parsedown": "^1.6"
     },
     "license": "MIT",
