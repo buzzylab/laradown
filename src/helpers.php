@@ -24,7 +24,8 @@ if (!function_exists('markdown_style')) {
      *
      * @return mixed
      */
-    function markdown_style($file = null){
+    function markdown_style($file = null)
+    {
         return app('markdown')->loadStyle($file);
     }
 }
