@@ -4,7 +4,7 @@ namespace Buzzylab\Laradown;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Parsedown;
+use ParsedownExtra;
 
 class MarkdownServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class MarkdownServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('markdown', function () {
-            $markdown = new Parsedown();
+            $markdown = new ParsedownExtra();
 
             return $markdown;
         });
