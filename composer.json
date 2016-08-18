@@ -21,6 +21,9 @@
     "autoload": {
         "psr-4":{
             "Buzzylab\\Laradown\\": "src"
-        }
+        },
+        "files":[
+            "src/helpers.php"
+        ]
     }
 }
