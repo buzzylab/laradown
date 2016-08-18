@@ -4,6 +4,7 @@ namespace Buzzylab\Laradown;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use ParsedownExtra;
 
 class MarkdownServiceProvider extends ServiceProvider
 {
@@ -20,17 +21,24 @@ class MarkdownServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('markdown', function () {
-            $markdown = new Laradown();
-
-            return $markdown;
+            $parsedown = new ParsedownExtra();
+            return new Laradown($parsedown);
         });
     }
 
     protected function registerBladeWidgets()
     {
-        // Markdown Blade Directive
-        Blade::directive('markdown', function ($value) {
-            return "<?php echo Markdown::text($value); ?>";
+        // Markdown Start Blade Directive
+        Blade::directive('markdown', function($markdown) {
+            if (! is_null($markdown)) {
+                return "<?php echo Laradown::convert{$markdown}; ?>";
+            }
+            return "<?php Markdown::collect() ?>";
+        });
+
+        // Markdown End Blade Directive
+        Blade::directive('endmarkdown', function () {
+            return "<?php echo Laradown::endCollect() ?>";
         });
     }
 }
