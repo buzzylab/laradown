@@ -31,7 +31,7 @@ class Laradown
     public function __construct(ParsedownExtra $markdown)
     {
         $this->markdown = $markdown;
-        $this->files    = app('files');
+        $this->files = app('files');
     }
 
     /**
@@ -98,7 +98,7 @@ class Laradown
     }
 
     /**
-     * Get style
+     * Get style.
      *
      * @param null $file
      *
@@ -110,12 +110,12 @@ class Laradown
         $content = '';
 
         // Get style file or get default
-        if(is_null($file)){
+        if (is_null($file)) {
             $file = __DIR__.'/../public/github.css';
         }
 
         // check if style file exists
-        if($this->files->exists($file)){
+        if ($this->files->exists($file)) {
             $content = $this->files->get($file);
         }
 
