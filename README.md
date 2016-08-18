@@ -1,4 +1,6 @@
-# Laradown #
+Laradown
+--------
+
 
 [![Latest Stable Version](https://poser.pugx.org/buzzylab/laradown/version)](https://packagist.org/packages/buzzylab/laradown)
 [![Total Downloads](https://poser.pugx.org/buzzylab/laradown/downloads)](https://packagist.org/packages/buzzylab/laradown)
@@ -8,7 +10,7 @@
 
 A New `Markdown` parser for Laravel built on [Parsedown](https://github.com/erusev/parsedown) and [Parsedown Extra](https://github.com/erusev/parsedown-extra).
 
-### Installation
+## Installation
 
 The best and easiest way to install this package is through [Composer](https://getcomposer.org/).
 
@@ -21,7 +23,7 @@ This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2
 
 Open your application's `composer.json` file and add the following line to the `require` array:
 ```json
-"buzzylab/laradown": "dev-master"
+"buzzylab/laradown": "0.1.2"
 ```
 
 > **Note:** Make sure that after the required changes your `composer.json` file is valid by running `composer validate`.
@@ -40,15 +42,19 @@ And add the following to `$aliases`
 ```
 
 
-### Usage
+## Usage
 
 ```php
 <?php
 
 echo Markdown::render(); // OR echo Markdown::convert();
 ```
+That's all.
 
-And you can use `@markdown` directive
+
+## Blade Directive:
+
+### Use `@markdown` directive with parameter:
 
 ```php
 @extends('layouts.master')
@@ -62,7 +68,7 @@ And you can use `@markdown` directive
 @stop
 ```
 
-Also, You can use markdown blade directive block
+### Use `@markdown` with `@endmarkdown` as directive block:
 
 ```php
 @extends('layouts.master')
@@ -77,6 +83,23 @@ Also, You can use markdown blade directive block
 </div>
 @stop
 ```
+
+### Add style to your converted html with `@markdownstyle`
+
+```php
+    {{-- Get defaute style file --}}
+    @markdownstyle
+    
+    {{-- Custom style file --}}
+    @markdownstyle($file)
+```
+## Helper Functions:
+
+### `markdown($markdown)`
+Convert markdown content to html
+
+### `markdown_style()`
+Add style to converted html
 
 ## License
 

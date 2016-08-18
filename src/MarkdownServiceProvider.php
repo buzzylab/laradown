@@ -31,7 +31,7 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerBladeWidgets()
     {
         // Markdown Style Blade Directive
-        Blade::directive('style', function ($file) {
+        Blade::directive('markdownstyle', function ($file) {
             if (!is_null($file)) {
                 return "<?php echo Laradown::loadStyle{$file}; ?>";
             }
