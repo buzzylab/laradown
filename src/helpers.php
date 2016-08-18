@@ -14,3 +14,17 @@ if (!function_exists('markdown')) {
         return app('markdown')->text($content);
     }
 }
+
+if (!function_exists('markdown_style')) {
+
+    /**
+     * Load markdown style.
+     *
+     * @param null $file
+     *
+     * @return mixed
+     */
+    function markdown_style($file = null){
+        return app('markdown')->loadStyle($file);
+    }
+}

@@ -7,6 +7,11 @@ use ParsedownExtra;
 class Laradown
 {
     /**
+     * @var
+     */
+    protected $files;
+
+    /**
      * @var ParsedownExtra
      */
     protected $markdown;
@@ -26,6 +31,7 @@ class Laradown
     public function __construct(ParsedownExtra $markdown)
     {
         $this->markdown = $markdown;
+        $this->files    = app('files');
     }
 
     /**
@@ -89,5 +95,31 @@ class Laradown
         if ($this->collect_indicator === false) {
             throw new \Exception('@markdown is missing.');
         }
+    }
+
+    /**
+     * Get style
+     *
+     * @param null $file
+     *
+     * @return string
+     */
+    public function loadStyle($file = null)
+    {
+        // init required vars
+        $content = '';
+
+        // Get style file or get default
+        if(is_null($file)){
+            $file = __DIR__.'/../public/github.css';
+        }
+
+        // check if style file exists
+        if($this->files->exists($file)){
+            $content = $this->files->get($file);
+        }
+
+        // Finally return style
+        return "<style>{$content}</style>";
     }
 }
