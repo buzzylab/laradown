@@ -41,6 +41,18 @@ class Laradown
     }
 
     /**
+     * Convert markdown to html
+     *
+     * @param $markdown
+     *
+     * @return mixed|string
+     */
+    public function render($markdown)
+    {
+        return $this->convert($markdown);
+    }
+
+    /**
      * Start collect markdown block
      */
     public function collect()
