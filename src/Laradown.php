@@ -12,7 +12,7 @@ class Laradown
     protected $markdown;
 
     /**
-     * Indicator for markdown collect block
+     * Indicator for markdown collect block.
      *
      * @var bool
      */
@@ -29,7 +29,7 @@ class Laradown
     }
 
     /**
-     * Convert markdown to html
+     * Convert markdown to html.
      *
      * @param $markdown
      *
@@ -41,7 +41,7 @@ class Laradown
     }
 
     /**
-     * Convert markdown to html
+     * Convert markdown to html.
      *
      * @param $markdown
      *
@@ -53,12 +53,12 @@ class Laradown
     }
 
     /**
-     * Start collect markdown block
+     * Start collect markdown block.
      */
     public function collect()
     {
         // Make indicator true
-        $this->collect_indicator = true ;
+        $this->collect_indicator = true;
 
         // Start collect
         ob_start();
@@ -80,14 +80,14 @@ class Laradown
     }
 
     /**
-     * Check collect block started
+     * Check collect block started.
      *
      * @throws \Exception
      */
     protected function checkCollectBlockStarted()
     {
         if ($this->collect_indicator === false) {
-            throw new \Exception("@markdown is missing.");
+            throw new \Exception('@markdown is missing.');
         }
     }
 }

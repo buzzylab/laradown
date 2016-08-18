@@ -22,6 +22,7 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $this->app->singleton('markdown', function () {
             $parsedown = new ParsedownExtra();
+
             return new Laradown($parsedown);
         });
     }
@@ -29,16 +30,17 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerBladeWidgets()
     {
         // Markdown Start Blade Directive
-        Blade::directive('markdown', function($markdown) {
-            if (! is_null($markdown)) {
+        Blade::directive('markdown', function ($markdown) {
+            if (!is_null($markdown)) {
                 return "<?php echo Laradown::convert{$markdown}; ?>";
             }
-            return "<?php Markdown::collect() ?>";
+
+            return '<?php Markdown::collect() ?>';
         });
 
         // Markdown End Blade Directive
         Blade::directive('endmarkdown', function () {
-            return "<?php echo Laradown::endCollect() ?>";
+            return '<?php echo Laradown::endCollect() ?>';
         });
     }
 }
