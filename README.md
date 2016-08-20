@@ -23,7 +23,7 @@ This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2
 
 Open your application's `composer.json` file and add the following line to the `require` array:
 ```json
-"buzzylab/laradown": "0.1.2"
+"buzzylab/laradown": "0.1.*"
 ```
 
 > **Note:** Make sure that after the required changes your `composer.json` file is valid by running `composer validate`.
