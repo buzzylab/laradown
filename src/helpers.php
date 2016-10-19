@@ -11,7 +11,7 @@ if (!function_exists('markdown')) {
      */
     function markdown($content)
     {
-        return app('markdown')->text($content);
+        return app('markdown')->convert($content);
     }
 }
 
