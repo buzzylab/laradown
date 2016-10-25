@@ -4,17 +4,12 @@ namespace Buzzylab\Laradown;
 
 use ParsedownExtra;
 
-class Laradown
+class Laradown extends ParsedownExtra
 {
     /**
      * @var
      */
     protected $files;
-
-    /**
-     * @var ParsedownExtra
-     */
-    protected $markdown;
 
     /**
      * Indicator for markdown collect block.
@@ -25,13 +20,26 @@ class Laradown
 
     /**
      * Laradown constructor.
-     *
-     * @param ParsedownExtra $markdown
      */
-    public function __construct(ParsedownExtra $markdown)
+    public function __construct()
     {
-        $this->markdown = $markdown;
+        parent::__construct();
+
         $this->files = app('files');
+    }
+
+    protected function element(array $Element)
+    {
+        $markup = '';
+
+        if(str_is('h*' , $Element['name'])){
+            $link = str_replace(' ', '-', strtolower($Element['text']));
+            $markup = '<a target="_self" href="#' .$link.'"><i class="fa fa-link"></i>Link</a>';
+        }
+
+        $markup .= parent::element($Element);
+
+        return $markup;
     }
 
     /**
@@ -43,7 +51,7 @@ class Laradown
      */
     public function convert($markdown)
     {
-        return $this->markdown->text($markdown);
+        return $this->text($markdown);
     }
 
     /**
