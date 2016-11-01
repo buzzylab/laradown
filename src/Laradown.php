@@ -32,7 +32,7 @@ class Laradown extends ParsedownExtra
     {
         $markup = '';
 
-        if (str_is('h*', $Element['name'])) {
+        if (str_is('h[1-6]', $Element['name'])) {
             $link = str_replace(' ', '-', strtolower($Element['text']));
             $markup = '<a  class="header-link" href="#'.$link.'" id="'.$link.'"><i class="glyphicon glyphicon-link"></i></a>';
         }
