@@ -32,25 +32,25 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         // Markdown Style Blade Directive
         Blade::directive('markdownstyle', function ($file) {
-            if (!is_null($file)) {
-                return "<?php echo Laradown::loadStyle{$file}; ?>";
+            if (!empty($file)) {
+                return "<?php echo Markdown::loadStyle({$file}); ?>";
             }
 
-            return '<?php Markdown::loadStyle() ?>';
+            return '<?php Markdown::loadStyle(); ?>';
         });
 
         // Markdown Start Blade Directive
         Blade::directive('markdown', function ($markdown) {
-            if (!is_null($markdown)) {
-                return "<?php echo Laradown::convert{$markdown}; ?>";
+            if (!empty($markdown)) {
+                return "<?php echo Markdown::convert($markdown); ?>";
             }
 
-            return '<?php Markdown::collect() ?>';
+            return '<?php Markdown::collect(); ?>';
         });
 
         // Markdown End Blade Directive
         Blade::directive('endmarkdown', function () {
-            return '<?php echo Laradown::endCollect() ?>';
+            return '<?php echo Markdown::endCollect(); ?>';
         });
     }
 }
