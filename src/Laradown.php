@@ -3,13 +3,23 @@
 namespace Buzzylab\Laradown;
 
 use ParsedownExtra;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Contracts\Container\Container;
 
 class Laradown extends ParsedownExtra
 {
+
     /**
-     * @var
+     * The IoC container instance.
+     *
+     * @var \Illuminate\Contracts\Container\Container
      */
-    protected $files;
+    protected $container;
+
+    /**
+     * @var Filesystem
+     */
+    protected $filesystem;
 
     /**
      * Indicator for markdown collect block.
@@ -20,14 +30,47 @@ class Laradown extends ParsedownExtra
 
     /**
      * Laradown constructor.
+     *
+     * @param Filesystem $filesystem
      */
-    public function __construct()
+    public function __construct(Filesystem $filesystem)
     {
         parent::__construct();
 
-        $this->files = app('files');
+        $this->filesystem = $filesystem;
     }
 
+    /**
+     * Set the IoC container instance.
+     *
+     * @param \Illuminate\Contracts\Container\Container $container
+     *
+     * @return $this
+     */
+    public function setContainer(Container $container)
+    {
+        $this->container = $container;
+
+        return $this;
+    }
+    /**
+     * Get the IoC container instance or any of it's services.
+     *
+     * @param string|null $service
+     *
+     * @return object
+     */
+    public function getContainer($service = null)
+    {
+        return is_null($service) ? ($this->container ?: app()) : ($this->container[$service] ?: app($service));
+    }
+
+    /**
+     * Handlers for all elements
+     *
+     * @param array $Element
+     * @return string
+     */
     protected function element(array $Element)
     {
         $markup = '';
@@ -51,7 +94,15 @@ class Laradown extends ParsedownExtra
      */
     public function convert($markdown)
     {
-        return $this->text($markdown);
+        // Fire converting event
+        $this->getContainer('events')->fire('laradown.entity.converting');
+
+        $text =  $this->text($markdown);
+
+        // Fire converted event
+        $this->getContainer('events')->fire('laradown.entity.converted');
+
+        return $text;
     }
 
     /**
@@ -71,6 +122,9 @@ class Laradown extends ParsedownExtra
      */
     public function collect()
     {
+        // Fire collecting event
+        $this->getContainer('events')->fire('laradown.entity.collecting');
+
         // Make indicator true
         $this->collect_indicator = true;
 
@@ -88,6 +142,9 @@ class Laradown extends ParsedownExtra
 
         // Get the markdown content from block
         $markdown = ob_get_clean();
+
+        // Fire collected event
+        $this->getContainer('events')->fire('laradown.entity.collected');
 
         // Convert the markdown content to html
         return $this->convert($markdown);
@@ -123,11 +180,13 @@ class Laradown extends ParsedownExtra
         }
 
         // check if style file exists
-        if ($this->files->exists($file)) {
-            $content = $this->files->get($file);
+        if ($this->filesystem->exists($file)) {
+            $content = $this->filesystem->get($file);
         }
 
         // Finally return style
         return "<style>{$content}</style>";
     }
+
+
 }

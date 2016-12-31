@@ -2,9 +2,9 @@
 
 namespace Buzzylab\Laradown;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use ParsedownExtra;
 
 class MarkdownServiceProvider extends ServiceProvider
 {
@@ -22,9 +22,10 @@ class MarkdownServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('markdown', function () {
-            $parsedown = new ParsedownExtra();
 
-            return new Laradown($parsedown);
+            $filesystem = new Filesystem();
+
+            return new Laradown($filesystem);
         });
     }
 

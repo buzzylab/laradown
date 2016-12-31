@@ -10,6 +10,9 @@
     "require": {
         "illuminate/support": "5.1.*|5.2.*|5.3.*",
         "illuminate/filesystem": "5.1.*|5.2.*|5.3.*",
+        "illuminate/events": "5.1.*|5.2.*|5.3.*",
+        "illuminate/container": "5.1.*|5.2.*|5.3.*",
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
         "erusev/parsedown": "^1.6",
         "erusev/parsedown-extra": "0.7.*"
     },
