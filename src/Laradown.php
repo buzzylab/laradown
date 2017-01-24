@@ -2,13 +2,12 @@
 
 namespace Buzzylab\Laradown;
 
-use ParsedownExtra;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Filesystem\Filesystem;
+use ParsedownExtra;
 
 class Laradown extends ParsedownExtra
 {
-
     /**
      * The IoC container instance.
      *
@@ -53,6 +52,7 @@ class Laradown extends ParsedownExtra
 
         return $this;
     }
+
     /**
      * Get the IoC container instance or any of it's services.
      *
@@ -66,9 +66,10 @@ class Laradown extends ParsedownExtra
     }
 
     /**
-     * Handlers for all elements
+     * Handlers for all elements.
      *
      * @param array $Element
+     *
      * @return string
      */
     protected function element(array $Element)
@@ -97,7 +98,7 @@ class Laradown extends ParsedownExtra
         // Fire converting event
         $this->getContainer('events')->fire('laradown.entity.converting');
 
-        $text =  $this->text($markdown);
+        $text = $this->text($markdown);
 
         // Fire converted event
         $this->getContainer('events')->fire('laradown.entity.converted');
@@ -187,6 +188,4 @@ class Laradown extends ParsedownExtra
         // Finally return style
         return "<style>{$content}</style>";
     }
-
-
 }
