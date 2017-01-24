@@ -22,7 +22,6 @@ class MarkdownServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('markdown', function () {
-
             $filesystem = new Filesystem();
 
             return new Laradown($filesystem);
