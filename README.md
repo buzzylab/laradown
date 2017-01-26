@@ -17,7 +17,7 @@ The best and easiest way to install this package is through [Composer](https://g
 
 ### Compatibility
 
-This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2.*|5.3.*`.
+This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2.*|5.3.*|5.4.*`.
 
 ### Require Package
 
