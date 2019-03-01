@@ -17,7 +17,7 @@ The best and easiest way to install this package is through [Composer](https://g
 
 ### Compatibility
 
-This package fully compatible with **[Laravel](https://laravel.com)** `5.1.*|5.2.*|5.3.*|5.4.*|5.5.x`.
+This package fully compatible with **[Laravel](https://laravel.com)** `^5.4`.
 
 ### Require Package
 
@@ -33,7 +33,7 @@ After installing the package, open your Laravel config file located at `config/a
 Buzzylab\Laradown\MarkdownServiceProvider::class,
 ```
 
-> **Note:** Checkout Laravel's [Service Providers](https://laravel.com/docs/5.5/providers) and [Service Container](https://laravel.com/docs/5.5/container) documentation for further details.
+> **Note:** Checkout Laravel's [Service Providers](https://laravel.com/docs/5.8/providers) and [Service Container](https://laravel.com/docs/5.8/container) documentation for further details.
 
 And add the following to `$aliases`
 
