@@ -8,11 +8,11 @@
         "editor"
     ],
     "require": {
-        "illuminate/support": "^5.1",
-        "illuminate/filesystem": "^5.1",
-        "illuminate/events": "^5.1",
-        "illuminate/container": "^5.1",
-        "illuminate/contracts": "^5.1",
+        "illuminate/support": "^5.4",
+        "illuminate/filesystem": "^5.4",
+        "illuminate/events": "^5.4",
+        "illuminate/container": "^5.4",
+        "illuminate/contracts": "^5.4",
         "erusev/parsedown": "^1.6",
         "erusev/parsedown-extra": "0.7.*"
     },
