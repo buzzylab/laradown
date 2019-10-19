@@ -8,13 +8,13 @@
         "editor"
     ],
     "require": {
-        "illuminate/support": "^5.4",
-        "illuminate/filesystem": "^5.4",
-        "illuminate/events": "^5.4",
-        "illuminate/container": "^5.4",
-        "illuminate/contracts": "^5.4",
-        "erusev/parsedown": "^1.6",
-        "erusev/parsedown-extra": "0.7.*"
+        "illuminate/support": "^6.0",
+        "illuminate/filesystem": "^6.0",
+        "illuminate/events": "^6.0",
+        "illuminate/container": "^6.0",
+        "illuminate/contracts": "^6.0",
+        "erusev/parsedown": "^1.7.3",
+        "erusev/parsedown-extra": "^0.7.1"
     },
     "license": "MIT",
     "authors": [
