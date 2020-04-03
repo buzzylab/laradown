@@ -55,18 +55,6 @@ class Laradown extends ParsedownExtra
     }
 
     /**
-     * Get the IoC container instance or any of it's services.
-     *
-     * @param string|null $service
-     *
-     * @return object
-     */
-    public function getContainer($service = null)
-    {
-        return is_null($service) ? ($this->container ?: app()) : ($this->container[$service] ?: app($service));
-    }
-
-    /**
      * Handlers for all elements.
      *
      * @param array $Element
@@ -97,12 +85,12 @@ class Laradown extends ParsedownExtra
     public function convert($markdown)
     {
         // Fire converting event
-        $this->getContainer('events')->dispatch('laradown.entity.converting');
+        event('laradown.entity.converting');
 
         $text = $this->text($markdown);
 
         // Fire converted event
-        $this->getContainer('events')->dispatch('laradown.entity.converted');
+        event('laradown.entity.converted');
 
         return $text;
     }
@@ -125,7 +113,7 @@ class Laradown extends ParsedownExtra
     public function collect()
     {
         // Fire collecting event
-        $this->getContainer('events')->dispatch('laradown.entity.collecting');
+        event('laradown.entity.collecting');
 
         // Make indicator true
         $this->collect_indicator = true;
@@ -146,7 +134,7 @@ class Laradown extends ParsedownExtra
         $markdown = ob_get_clean();
 
         // Fire collected event
-        $this->getContainer('events')->dispatch('laradown.entity.collected');
+        event('laradown.entity.collected');
 
         // Convert the markdown content to html
         return $this->convert($markdown);
