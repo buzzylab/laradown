@@ -17,13 +17,13 @@ The best and easiest way to install this package is through [Composer](https://g
 
 ### Compatibility
 
-This package fully compatible with **[Laravel](https://laravel.com)** `^5.4`.
+This package fully compatible with **[Laravel](https://laravel.com)** above `5.4`.
 
 ### Require Package
 
 Open your application's `composer.json` file and add the following line to the `require` array:
 ```json
-"buzzylab/laradown": "0.1.*"
+"buzzylab/laradown": "~0.2"
 ```
 
 > **Note:** Make sure that after the required changes your `composer.json` file is valid by running `composer validate`.
