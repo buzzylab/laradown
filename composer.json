@@ -34,5 +34,15 @@
         "files":[
             "src/helpers.php"
         ]
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Buzzylab\\Laradown\\MarkdownServiceProvider"
+            ],
+            "aliases": {
+                "Markdown": "Buzzylab\\Laradown\\Facades\\MarkdownFacade"
+            }
+        }
+    },
 }
