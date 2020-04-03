@@ -44,5 +44,5 @@
                 "Markdown": "Buzzylab\\Laradown\\Facades\\MarkdownFacade"
             }
         }
-    },
+    }
 }
